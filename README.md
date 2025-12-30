@@ -8,9 +8,19 @@
 
 ConvoScope is a comprehensive toolkit for analyzing Claude AI conversations with deep insights into quality, patterns, and evolution - all while keeping your data private and processed locally.
 
+**🌟 NOW WITH WEB INTERFACE!** ConvoScope v2.0 includes a modern, beautiful web application that makes conversation analysis accessible to everyone - no command line required!
+
 ![ConvoScope Banner](docs/assets/banner.png)
 
 ## ✨ Features
+
+### 🌐 Modern Web Interface (NEW!)
+- **Drag-and-drop** file upload
+- **Real-time** progress tracking with WebSockets
+- **Interactive** dashboards and visualizations
+- **Beautiful** modern UI with Tailwind CSS
+- **Responsive** design (works on desktop, tablet, mobile)
+- **Zero installation** - just run and open in browser
 
 ### 🔒 Privacy-First Architecture
 - **Automatic PII Redaction**: Removes emails, phone numbers, SSNs, credit cards, addresses, API keys
@@ -43,27 +53,42 @@ ConvoScope is a comprehensive toolkit for analyzing Claude AI conversations with
 
 ## 🚀 Quick Start
 
-### Installation
+### Two Ways to Use ConvoScope
+
+#### Option 1: Web App (Recommended) ⭐
+
+**The easiest and most beautiful way to use ConvoScope!**
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/convoscope.git
-cd convoscope
-
-# Install dependencies
+# 1. Install Python dependencies
 pip install -r requirements.txt
+
+# 2. Install frontend dependencies (one-time setup)
+cd frontend
+npm install
+cd ..
+
+# 3. Start the backend server
+python backend/app.py
+
+# 4. In a new terminal, start the frontend
+cd frontend
+npm run dev
+
+# 5. Open http://localhost:3000 in your browser
+# 6. Drag and drop your Claude export JSON file
+# 7. Watch the magic happen! ✨
 ```
 
-### Get Your Data
-
-1. Go to [Claude.ai](https://claude.ai) → Settings → Privacy → "Download my data"
-2. Wait for email with your data export (typically 1-3 days)
-3. Extract the JSON file
-
-### Run Analysis
+#### Option 2: Command Line (Classic)
 
 ```bash
-# Basic analysis
+# Install dependencies
+pip install -r requirements.txt
+
+# Get your data from Claude.ai (Settings → Privacy → Download my data)
+
+# Run analysis
 python src/advanced_analyzer.py your_export.json
 
 # With custom output name
@@ -73,13 +98,29 @@ python src/advanced_analyzer.py your_export.json my_analysis
 python src/advanced_analyzer.py your_export.json output --no-viz
 ```
 
+### Get Your Data
+
+1. Go to [Claude.ai](https://claude.ai) → Settings → Privacy → "Download my data"
+2. Wait for email with your data export (typically 1-3 days)
+3. Extract the JSON file
+4. Upload to ConvoScope web app or use with CLI
+
 ## 📖 Documentation
 
-- [Installation Guide](docs/INSTALLATION.md)
-- [Usage Examples](docs/USAGE.md)
-- [API Reference](docs/API.md)
+### User Guides
+- [User Experience Walkthrough](docs/USER_EXPERIENCE_WALKTHROUGH.md) - See what the web app looks like
+- [UX Improvement Plan](docs/UX_IMPROVEMENT_PLAN.md) - Our vision for the best UX
+- [Usage Examples](docs/USAGE.md) - CLI usage guide
 - [Privacy & Security](docs/PRIVACY.md)
 - [Contributing](CONTRIBUTING.md)
+
+### Technical Documentation
+- [Frontend Architecture](docs/architecture/FRONTEND_ARCHITECTURE.md)
+- [Backend Architecture](docs/architecture/BACKEND_ARCHITECTURE.md)
+- [Frontend README](frontend/README.md)
+
+### Development
+- [Contributing Guidelines](CONTRIBUTING.md)
 
 ## 🎯 What Gets Analyzed
 
@@ -299,13 +340,28 @@ Inspired by Ubuntu philosophy: "I am because we are."
 
 ## 🗺️ Roadmap
 
+### ✅ Completed (v2.0)
+- [x] Interactive web dashboard with React + Flask
+- [x] Real-time progress tracking with WebSockets
+- [x] Modern, beautiful UI with Tailwind CSS
+- [x] Drag-and-drop file upload
+- [x] Comprehensive architecture documentation
+
+### 🚧 In Progress
+- [ ] Complete dashboard UI implementation
+- [ ] Interactive visualizations with drill-down
+- [ ] Conversation browser and search
+- [ ] Privacy dashboard with network monitor
+- [ ] Smart insights engine
+
+### 📋 Planned
 - [ ] Vector database export for semantic search
-- [ ] Interactive web dashboard (Streamlit/Flask)
 - [ ] LLM-powered insight generation
 - [ ] Conversation similarity clustering
-- [ ] Real-time monitoring mode
 - [ ] Multi-user comparison analysis
+- [ ] Progressive Web App (PWA) support
 - [ ] Export connectors for BI tools
+- [ ] Plugin system for custom analyzers
 
 ## ⭐ Star History
 
